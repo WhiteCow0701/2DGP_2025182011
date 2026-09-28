@@ -19,6 +19,19 @@ def move_circle():
         delay(0.05)
     pass
 
+def move_top():
+    print('TOP')
+
+def move_right():
+    print('RIGHT')
+
+def move_bottom():
+    print('BOTTOM')
+
+def move_left():
+    print('LEFT')
+
+   
 def move_rectangle():
     print('RECTANGLE')
     move_top()
