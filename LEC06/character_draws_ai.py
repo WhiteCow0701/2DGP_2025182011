@@ -80,3 +80,11 @@ def run_triangle():
 	move_dot_to_dot(point_a, point_b)
 	move_dot_to_dot(point_b, point_c)
 	move_dot_to_dot(point_c, point_a)
+
+
+while running:
+	run_circle()
+	run_rectangle()
+	run_triangle()
+
+close_canvas()
