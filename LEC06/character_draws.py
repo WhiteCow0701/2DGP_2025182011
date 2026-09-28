@@ -74,8 +74,8 @@ def move_rectangle():
     move_left()
     pass
 
-def move_dot_to_dot(start, end):
-    print('MOVE DOT TO DOT')
+def move_dot_to_dot(start, end, start_name, end_name):
+    print(f'MOVE {start_name} to {end_name}')
     x0, y0 = start
     x1, y1 = end
     n = 100
@@ -94,9 +94,9 @@ def move_triangle():
     B = (700, 100)
     C = (400, 500)
 
-    move_dot_to_dot(A, B)
-    move_dot_to_dot(B, C)
-    move_dot_to_dot(C, A)
+    move_dot_to_dot(A, B, 'A', 'B')
+    move_dot_to_dot(B, C, 'B', 'C')
+    move_dot_to_dot(C, A, 'C', 'A')
     
     
 
