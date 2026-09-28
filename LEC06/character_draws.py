@@ -7,7 +7,7 @@ open_canvas()
 character = load_image(os.path.join(os.path.dirname(__file__), 'character.png'))
 running = True
 
-"""
+
 def move_circle():
     print('CIRCLE')
     
@@ -18,7 +18,7 @@ def move_circle():
 
         draw_character(x, y)    
     pass
-"""
+
 
 def move_top():
     print('TOP')
@@ -60,7 +60,7 @@ def move_left():
     for y in range(50, 550, 5):
         draw_character(50, y)
     pass
-"""
+
 def move_rectangle():
     print('RECTANGLE')
     move_top()
@@ -68,7 +68,7 @@ def move_rectangle():
     move_bottom()
     move_left()
     pass
-"""
+
 def move_dot_to_dot(start, end):
     print('MOVE DOT TO DOT')
     x0, y0 = start
@@ -96,10 +96,17 @@ def move_triangle():
     
 
 
-while running:
-    #move_circle()
-    #move_rectangle()
+while True:
+    if not running:
+        break
+    move_circle()
+    if not running:
+        break
+    move_rectangle()
+    if not running:
+        break
     move_triangle()
 
 close_canvas()
+
 
