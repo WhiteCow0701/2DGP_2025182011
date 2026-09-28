@@ -9,6 +9,7 @@ running = True
 FRAME_DELAY = 0.05
 CIRCLE_CENTER = (400, 300)
 CIRCLE_RADIUS = 200
+DOT_STEP = 5
 
 
 def move_circle():
@@ -81,7 +82,8 @@ def move_dot_to_dot(start, end, start_name, end_name):
     print(f'MOVE {start_name} to {end_name}')
     x0, y0 = start
     x1, y1 = end
-    n = 100
+    distance = math.hypot(x1 - x0, y1 - y0)
+    n = max(1, round(distance / DOT_STEP))
     
 
     for step in range(n + 1):
