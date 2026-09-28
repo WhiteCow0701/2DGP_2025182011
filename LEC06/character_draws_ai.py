@@ -30,6 +30,7 @@ def draw_character(x, y):
 
 
 def run_circle():
+	print('CIRCLE')
 	center_x, center_y = 400, 300
 	radius = 200
 
@@ -42,6 +43,7 @@ def run_circle():
 
 
 def run_rectangle():
+	print('RECTANGLE')
 	for x in range(100, 701, 4):
 		if not draw_character(x, 100):
 			return
@@ -73,6 +75,7 @@ def move_dot_to_dot(start, end):
 
 
 def run_triangle():
+	print('TRIANGLE')
 	point_a = (100, 100)
 	point_b = (700, 100)
 	point_c = (400, 500)
@@ -84,7 +87,11 @@ def run_triangle():
 
 while running:
 	run_circle()
+	if not running:
+		break
 	run_rectangle()
+	if not running:
+		break
 	run_triangle()
 
 close_canvas()
