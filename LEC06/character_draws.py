@@ -73,8 +73,14 @@ def move_left():
 def move_rectangle():
     print('RECTANGLE')
     move_top()
+    if not running:
+        return
     move_right()
+    if not running:
+        return
     move_bottom()
+    if not running:
+        return
     move_left()
 
 
@@ -100,7 +106,11 @@ def move_triangle():
     C = (400, 500)
 
     move_dot_to_dot(A, B, 'A', 'B')
+    if not running:
+        return
     move_dot_to_dot(B, C, 'B', 'C')
+    if not running:
+        return
     move_dot_to_dot(C, A, 'C', 'A')
     
     
