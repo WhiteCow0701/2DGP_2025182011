@@ -1,10 +1,9 @@
 import math
-
 from pico2d import *
 
 open_canvas()
 
-character = load_image( 'character.png')
+character = load_image('character.png')
 running = True
 FRAME_DELAY = 0.05
 CIRCLE_CENTER = (400, 300)
@@ -14,13 +13,10 @@ DOT_STEP = 5
 
 def move_circle():
     print('CIRCLE')
-    center_x, center_y = CIRCLE_CENTER
-    
     for degree in range(360):
         theta = math.radians(degree)
-        x = center_x + CIRCLE_RADIUS * math.cos(theta)
-        y = center_y + CIRCLE_RADIUS * math.sin(theta)
-
+        x = 400 + 200 * math.cos(theta)
+        y = 300 + 200 * math.sin(theta)
         if not draw_character(x, y):
             return
     
