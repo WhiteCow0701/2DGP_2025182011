@@ -1,3 +1,5 @@
+import math
+
 def move_circle():
     print('circle')
     
@@ -23,3 +25,7 @@ boy.draw(400, 300)
 update_canvas()
 delay(1)
 close_canvas()
+
+theta = math.radians(degree)
+x = 400 + 200 * math.cos(theta)
+y = 300 + 200 * math.sin(theta)
