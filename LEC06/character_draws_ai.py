@@ -57,3 +57,26 @@ def run_rectangle():
 	for y in range(500, 99, -4):
 		if not draw_character(100, y):
 			return
+
+
+def move_dot_to_dot(start, end):
+	x0, y0 = start
+	x1, y1 = end
+	steps = max(abs(x1 - x0), abs(y1 - y0))
+
+	for step in range(steps + 1):
+		t = step / steps
+		x = x0 + (x1 - x0) * t
+		y = y0 + (y1 - y0) * t
+		if not draw_character(x, y):
+			return
+
+
+def run_triangle():
+	point_a = (100, 100)
+	point_b = (700, 100)
+	point_c = (400, 500)
+
+	move_dot_to_dot(point_a, point_b)
+	move_dot_to_dot(point_b, point_c)
+	move_dot_to_dot(point_c, point_a)
