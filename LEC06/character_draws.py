@@ -79,7 +79,8 @@ def move_triangle():
     B = (700, 100)
     C = (400, 500)
 
-    move_dot_to_dot(A, B)
+    move_dot_to_dot(B, C)
+    
     
 
 
