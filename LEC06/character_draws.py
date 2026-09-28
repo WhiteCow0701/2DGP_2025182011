@@ -1,5 +1,4 @@
 import math
-import os
 from pico2d import *
 
 open_canvas()
@@ -18,15 +17,14 @@ def move_circle():
 
         if not draw_character(x, y):
             return
-    pass
-
+    
 
 def move_top():
     print('TOP')
     for x in range(50, 750, 5):
         if not draw_character(x, 550):
             return
-    pass
+
            
 
 def draw_character(x, y):
@@ -50,21 +48,21 @@ def move_right():
     for y in range(550, 50, -5):
         if not draw_character(750, y):
             return
-    pass
+    
 
 def move_bottom():
     print('BOTTOM')
     for x in range(750, 50, -5):
         if not draw_character(x, 50):
             return
-    pass
+    
 
 def move_left():
     print('LEFT')
     for y in range(50, 550, 5):
         if not draw_character(50, y):
             return
-    pass
+    
 
 def move_rectangle():
     print('RECTANGLE')
@@ -72,7 +70,7 @@ def move_rectangle():
     move_right()
     move_bottom()
     move_left()
-    pass
+    
 
 def move_dot_to_dot(start, end, start_name, end_name):
     print(f'MOVE {start_name} to {end_name}')
