@@ -5,6 +5,7 @@ from pico2d import *
 open_canvas()
 
 character = load_image(os.path.join(os.path.dirname(__file__), 'character.png'))
+running = True
 
 """
 def move_circle():
@@ -28,10 +29,18 @@ def move_top():
 
 def draw_character(x, y):
     global running
+    for event in get_events():
+        if event.type == SDL_QUIT or (event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE):
+            running = False
+
+    if not running:
+        return False
+
     clear_canvas()
     character.draw(x, y)
     update_canvas()
     delay(0.05)
+    return True
 
 
 def move_right():
@@ -71,7 +80,8 @@ def move_dot_to_dot(start, end):
         t = step / n
         x = x0 + (x1 - x0) * t
         y = y0 + (y1 - y0) * t
-        draw_character(x, y)
+        if not draw_character(x, y):
+            return
     
 def move_triangle():
     print('TRIANGLE')
@@ -79,16 +89,17 @@ def move_triangle():
     B = (700, 100)
     C = (400, 500)
 
+    move_dot_to_dot(A, B)
+    move_dot_to_dot(B, C)
     move_dot_to_dot(C, A)
     
     
 
 
-while True:
+while running:
     #move_circle()
     #move_rectangle()
     move_triangle()
-    break
 
 close_canvas()
 
