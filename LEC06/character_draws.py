@@ -1,10 +1,10 @@
 import math
-import os
+
 from pico2d import *
 
 open_canvas()
 
-character = load_image(os.path.join(os.path.dirname(__file__), 'character.png'))
+character = load_image( 'character.png')
 running = True
 FRAME_DELAY = 0.05
 CIRCLE_CENTER = (400, 300)
