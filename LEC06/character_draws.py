@@ -51,7 +51,7 @@ def move_left():
     for y in range(50, 550, 5):
         draw_character(50, y)
     pass
-
+"""
 def move_rectangle():
     print('RECTANGLE')
     move_top()
@@ -59,20 +59,33 @@ def move_rectangle():
     move_bottom()
     move_left()
     pass
+"""
+def move_dot_to_dot(start, end):
+    print('MOVE DOT TO DOT')
+    x0, y0 = start
+    x1, y1 = end
+    n = 100
+    
 
-def move_dot_to_dot():
+    for step in range(n + 1):
+        t = step / n
         x = x0 + (x1 - x0) * t
         y = y0 + (y1 - y0) * t
+        draw_character(x, y)
     
 def move_triangle():
     print('TRIANGLE')
-    pass
+    A = (100, 100)
+    B = (700, 100)
+    C = (400, 500)
 
+    move_dot_to_dot(A, B)
+    
 
 
 while True:
     #move_circle()
-    move_rectangle()
+    #move_rectangle()
     move_triangle()
     break
 
