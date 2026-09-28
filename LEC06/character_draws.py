@@ -1,9 +1,10 @@
 import math
+import os
 from pico2d import *
 
 open_canvas()
 
-character = load_image('character.png')
+character = load_image(os.path.join(os.path.dirname(__file__), 'character.png'))
 running = True
 
 
@@ -70,7 +71,7 @@ def move_rectangle():
     move_right()
     move_bottom()
     move_left()
-    
+
 
 def move_dot_to_dot(start, end, start_name, end_name):
     print(f'MOVE {start_name} to {end_name}')
@@ -97,8 +98,6 @@ def move_triangle():
     move_dot_to_dot(C, A, 'C', 'A')
     
     
-
-
 while True:
     if not running:
         break
