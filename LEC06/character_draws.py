@@ -6,15 +6,19 @@ open_canvas()
 
 character = load_image(os.path.join(os.path.dirname(__file__), 'character.png'))
 running = True
+FRAME_DELAY = 0.05
+CIRCLE_CENTER = (400, 300)
+CIRCLE_RADIUS = 200
 
 
 def move_circle():
     print('CIRCLE')
+    center_x, center_y = CIRCLE_CENTER
     
     for degree in range(360):
         theta = math.radians(degree)
-        x = 400 + 200 * math.cos(theta)
-        y = 300 + 200 * math.sin(theta)
+        x = center_x + CIRCLE_RADIUS * math.cos(theta)
+        y = center_y + CIRCLE_RADIUS * math.sin(theta)
 
         if not draw_character(x, y):
             return
@@ -40,7 +44,7 @@ def draw_character(x, y):
     clear_canvas()
     character.draw(x, y)
     update_canvas()
-    delay(0.05)
+    delay(FRAME_DELAY)
     return True
 
 
