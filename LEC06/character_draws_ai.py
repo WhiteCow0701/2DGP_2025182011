@@ -39,3 +39,21 @@ def run_circle():
 		y = center_y + radius * math.sin(theta)
 		if not draw_character(x, y):
 			return
+
+
+def run_rectangle():
+	for x in range(100, 701, 4):
+		if not draw_character(x, 100):
+			return
+
+	for y in range(100, 501, 4):
+		if not draw_character(700, y):
+			return
+
+	for x in range(700, 99, -4):
+		if not draw_character(x, 500):
+			return
+
+	for y in range(500, 99, -4):
+		if not draw_character(100, y):
+			return
