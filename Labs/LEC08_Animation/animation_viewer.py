@@ -11,6 +11,7 @@ ANIMATION_REPEAT_LIMIT = 5
 PAUSE_SECONDS = 1.0
 
 
+# 추가 점수: 애니메이션마다 프레임 수와 프레임 크기, 출력 크기를 다르게 설정할 수 있다.
 def make_animation(
     name,
     row,
@@ -38,6 +39,7 @@ def main():
     grass = load_image('grass.png')
 
     animations = [
+        # 추가 점수 예시: 점프는 3프레임, 공격은 별도 출력 크기를 사용한다.
         make_animation('walk', 3),
         make_animation('run', 2),
         make_animation('jump', 1, frame_count=3),
