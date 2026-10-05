@@ -13,3 +13,28 @@ REPEAT_COUNT = 5
 PAUSE_SECONDS = 1.0
 SPRITE_FILENAME = 'sonic-sprite.png'
 SPRITE_PATH = os.path.join(os.path.dirname(__file__), SPRITE_FILENAME)
+
+
+def make_row(
+	name,
+	frame_count,
+	bottom,
+	frame_width=40,
+	frame_height=50,
+	frame_interval=FRAME_INTERVAL,
+):
+	frames = [
+		(
+			index * frame_width,
+			bottom,
+			min(frame_width, SPRITE_WIDTH - index * frame_width),
+			frame_height,
+		)
+		for index in range(frame_count)
+	]
+	return {
+		'name': name,
+		'frames': frames,
+		'frame_interval': frame_interval,
+		'draw_size': (DRAW_SIZE, DRAW_SIZE),
+	}
