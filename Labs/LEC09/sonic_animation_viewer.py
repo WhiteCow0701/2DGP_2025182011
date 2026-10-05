@@ -111,3 +111,12 @@ def run_viewer():
 		elapsed = min(current_time - previous_time, 0.1)
 		previous_time = current_time
 		animation = animations[animation_index]
+
+		if pause_until is None:
+			frame_elapsed += elapsed
+			while frame_elapsed >= animation['frame_interval']:
+				frame_elapsed -= animation['frame_interval']
+				frame_index += 1
+				if frame_index >= len(animation['frames']):
+					frame_index = 0
+					repeat_count += 1
