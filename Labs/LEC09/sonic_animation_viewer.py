@@ -22,15 +22,16 @@ def make_row(
 	frame_width=40,
 	frame_height=50,
 	frame_interval=FRAME_INTERVAL,
+	frame_ranges=None,
 ):
+	if frame_ranges is None:
+		frame_ranges = [
+			(index * frame_width, (index + 1) * frame_width)
+			for index in range(frame_count)
+		]
 	frames = [
-		(
-			index * frame_width,
-			bottom,
-			min(frame_width, SPRITE_WIDTH - index * frame_width),
-			frame_height,
-		)
-		for index in range(frame_count)
+		(left, bottom, right - left, frame_height)
+		for left, right in frame_ranges
 	]
 	return {
 		'name': name,
@@ -42,16 +43,52 @@ def make_row(
 
 def build_animations():
 	return [
-		make_row('walk', 9, 447, frame_width=40, frame_height=39, frame_interval=0.1),
-		make_row('run', 12, 408, frame_width=33, frame_height=39, frame_interval=0.09),
-		make_row('jump', 6, 362, frame_width=45, frame_height=43, frame_interval=0.12),
-		make_row('spin', 9, 326, frame_width=33, frame_height=34, frame_interval=0.1),
-		make_row('spin_fast', 6, 293, frame_width=35, frame_height=27, frame_interval=0.1),
-		make_row('spin_jump', 6, 252, frame_width=37, frame_height=36, frame_interval=0.1),
-		make_row('attack', 6, 208, frame_width=42, frame_height=35, frame_interval=0.11),
-		make_row('fall', 8, 155, frame_width=34, frame_height=45, frame_interval=0.12),
-		make_row('celebrate', 8, 109, frame_width=36, frame_height=39, frame_interval=0.12),
-		make_row('pose', 4, 57, frame_width=40, frame_height=41, frame_interval=0.12),
+		make_row(
+			'walk', 9, 447, frame_height=39, frame_interval=0.1,
+			frame_ranges=[(0, 30), (30, 58), (58, 118), (118, 150), (150, 182),
+				(182, 269), (269, 297), (297, 335), (335, 375)],
+		),
+		make_row(
+			'run', 12, 408, frame_height=39, frame_interval=0.09,
+			frame_ranges=[(0, 36), (36, 64), (64, 96), (96, 134), (134, 168),
+				(168, 203), (203, 235), (235, 262), (262, 294), (294, 332),
+				(332, 368), (368, 399)],
+		),
+		make_row(
+			'jump', 6, 362, frame_height=43, frame_interval=0.12,
+			frame_ranges=[(0, 37), (37, 81), (81, 126), (126, 172), (172, 221), (221, 261)],
+		),
+		make_row(
+			'spin', 9, 326, frame_height=34, frame_interval=0.1,
+			frame_ranges=[(0, 33), (33, 65), (65, 97), (97, 130), (130, 161),
+				(161, 193), (193, 229), (229, 264), (264, 298)],
+		),
+		make_row(
+			'spin_fast', 6, 293, frame_height=27, frame_interval=0.1,
+			frame_ranges=[(0, 35), (35, 67), (67, 102), (102, 136), (136, 171), (171, 207)],
+		),
+		make_row(
+			'spin_jump', 6, 252, frame_height=36, frame_interval=0.1,
+			frame_ranges=[(0, 36), (36, 70), (70, 108), (108, 145), (145, 182), (182, 217)],
+		),
+		make_row(
+			'attack', 6, 208, frame_height=35, frame_interval=0.11,
+			frame_ranges=[(0, 33), (33, 69), (69, 116), (116, 167), (167, 215), (215, 256)],
+		),
+		make_row(
+			'fall', 8, 155, frame_height=45, frame_interval=0.12,
+			frame_ranges=[(0, 28), (28, 62), (62, 87), (87, 117), (117, 146),
+				(146, 176), (176, 228), (228, 271)],
+		),
+		make_row(
+			'celebrate', 8, 109, frame_height=39, frame_interval=0.12,
+			frame_ranges=[(0, 29), (29, 63), (63, 96), (96, 134), (134, 172),
+				(172, 212), (212, 252), (252, 287)],
+		),
+		make_row(
+			'pose', 4, 57, frame_height=41, frame_interval=0.12,
+			frame_ranges=[(0, 45), (45, 89), (89, 121), (121, 160)],
+		),
 	]
 
 
