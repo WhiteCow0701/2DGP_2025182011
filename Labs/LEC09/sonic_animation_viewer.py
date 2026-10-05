@@ -23,6 +23,7 @@ def make_row(
 	frame_height=50,
 	frame_interval=FRAME_INTERVAL,
 	frame_ranges=None,
+	movement=None,
 ):
 	if frame_ranges is None:
 		frame_ranges = [
@@ -38,6 +39,7 @@ def make_row(
 		'frames': frames,
 		'frame_interval': frame_interval,
 		'draw_size': (DRAW_SIZE, DRAW_SIZE),
+		'movement': movement,
 	}
 
 
@@ -47,12 +49,14 @@ def build_animations():
 			'walk', 10, 447, frame_width=40, frame_height=39, frame_interval=0.1,
 			frame_ranges=[(0, 40), (40, 80), (80, 120), (120, 160), (160, 200),
 				(200, 240), (240, 280), (280, 320), (320, 360), (360, 399)],
+			movement={'start_x': 110, 'end_x': 1090, 'y': CANVAS_HEIGHT // 2},
 		),
 		make_row(
 			'run', 12, 408, frame_height=39, frame_interval=0.09,
 			frame_ranges=[(0, 36), (36, 64), (64, 96), (96, 134), (134, 168),
 				(168, 203), (203, 235), (235, 262), (262, 294), (294, 332),
 				(332, 368), (368, 399)],
+			movement={'start_x': 110, 'end_x': 1090, 'y': CANVAS_HEIGHT // 2},
 		),
 		make_row(
 			'jump', 6, 362, frame_height=43, frame_interval=0.12,
@@ -105,7 +109,18 @@ def validate_animations(animations):
 				raise ValueError('스프라이트 시트 영역을 벗어난 프레임입니다.')
 
 
-def draw_frame(sprite_sheet, animation, frame_index):
+def get_draw_position(animation, repeat_count, frame_index):
+	movement = animation['movement']
+	if movement is None:
+		return CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2
+
+	frame_progress = frame_index / len(animation['frames'])
+	progress = min((repeat_count + frame_progress) / REPEAT_COUNT, 1.0)
+	x = int(movement['start_x'] + (movement['end_x'] - movement['start_x']) * progress)
+	return x, movement['y']
+
+
+def draw_frame(sprite_sheet, animation, frame_index, x, y):
 	left, bottom, width, height = animation['frames'][frame_index]
 	draw_width, draw_height = animation['draw_size']
 	sprite_sheet.clip_draw(
@@ -113,8 +128,8 @@ def draw_frame(sprite_sheet, animation, frame_index):
 		bottom,
 		width,
 		height,
-		CANVAS_WIDTH // 2,
-		CANVAS_HEIGHT // 2,
+		x,
+		y,
 		draw_width,
 		draw_height,
 	)
@@ -170,8 +185,9 @@ def run_viewer():
 			pause_until = None
 			animation = animations[animation_index]
 
+		x, y = get_draw_position(animation, repeat_count, frame_index)
 		clear_canvas()
-		draw_frame(sprite_sheet, animation, frame_index)
+		draw_frame(sprite_sheet, animation, frame_index, x, y)
 		update_canvas()
 
 	close_canvas()
