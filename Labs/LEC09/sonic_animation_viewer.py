@@ -46,4 +46,6 @@ def build_animations():
 		make_row('run', 10, 350, frame_interval=0.09),
 		make_row('jump', 8, 295, frame_interval=0.12),
 		make_row('spin', 8, 235, frame_interval=0.1),
+		make_row('attack', 6, 180, frame_interval=0.11),
+		make_row('fall', 6, 125, frame_interval=0.12),
 	]
