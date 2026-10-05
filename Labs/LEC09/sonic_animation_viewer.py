@@ -42,14 +42,16 @@ def make_row(
 
 def build_animations():
 	return [
-		make_row('walk', 10, 405, frame_interval=0.1),
-		make_row('run', 10, 350, frame_interval=0.09),
-		make_row('jump', 8, 295, frame_interval=0.12),
-		make_row('spin', 8, 235, frame_interval=0.1),
-		make_row('attack', 6, 180, frame_interval=0.11),
-		make_row('fall', 6, 125, frame_interval=0.12),
-		make_row('celebrate', 8, 70, frame_height=45, frame_interval=0.12),
-		make_row('pose', 8, 15, frame_height=40, frame_interval=0.12),
+		make_row('walk', 9, 447, frame_width=40, frame_height=39, frame_interval=0.1),
+		make_row('run', 12, 408, frame_width=33, frame_height=39, frame_interval=0.09),
+		make_row('jump', 6, 362, frame_width=45, frame_height=43, frame_interval=0.12),
+		make_row('spin', 9, 326, frame_width=33, frame_height=34, frame_interval=0.1),
+		make_row('spin_fast', 6, 293, frame_width=35, frame_height=27, frame_interval=0.1),
+		make_row('spin_jump', 6, 252, frame_width=37, frame_height=36, frame_interval=0.1),
+		make_row('attack', 6, 208, frame_width=42, frame_height=35, frame_interval=0.11),
+		make_row('fall', 8, 155, frame_width=34, frame_height=45, frame_interval=0.12),
+		make_row('celebrate', 8, 109, frame_width=36, frame_height=39, frame_interval=0.12),
+		make_row('pose', 4, 57, frame_width=40, frame_height=41, frame_interval=0.12),
 	]
 
 
