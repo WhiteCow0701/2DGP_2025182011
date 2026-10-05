@@ -57,3 +57,5 @@ def validate_animations(animations):
 	for animation in animations:
 		if not animation['frames']:
 			raise ValueError('애니메이션 프레임이 비어 있습니다.')
+		if animation['frame_interval'] <= 0:
+			raise ValueError('프레임 간격은 0보다 커야 합니다.')
