@@ -88,3 +88,11 @@ def handle_events():
 		if event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
 			return False
 	return True
+
+
+def run_viewer():
+	animations = build_animations()
+	validate_animations(animations)
+
+	open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
+	sprite_sheet = load_image(SPRITE_PATH)
