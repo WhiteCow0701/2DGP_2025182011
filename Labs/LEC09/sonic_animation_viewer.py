@@ -46,9 +46,9 @@ def make_row(
 def build_animations():
 	return [
 		make_row(
-			'walk', 10, 447, frame_width=40, frame_height=39, frame_interval=0.1,
-			frame_ranges=[(0, 40), (40, 80), (80, 120), (120, 160), (160, 200),
-				(200, 240), (240, 280), (280, 320), (320, 360), (360, 399)],
+			'walk', 11, 447, frame_height=39, frame_interval=0.1,
+			frame_ranges=[(0, 30), (30, 57), (57, 86), (86, 116), (116, 148),
+				(148, 180), (180, 211), (211, 240), (240, 269), (269, 295), (295, 331)],
 			movement={'start_x': 110, 'end_x': 1090, 'y': CANVAS_HEIGHT // 2},
 		),
 		make_row(
