@@ -38,3 +38,10 @@ def make_row(
 		'frame_interval': frame_interval,
 		'draw_size': (DRAW_SIZE, DRAW_SIZE),
 	}
+
+
+def build_animations():
+	return [
+		make_row('walk', 10, 405, frame_interval=0.1),
+		make_row('run', 10, 350, frame_interval=0.09),
+	]
