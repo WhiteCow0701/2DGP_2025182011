@@ -11,4 +11,5 @@ DRAW_SIZE = 220
 FRAME_INTERVAL = 0.1
 REPEAT_COUNT = 5
 PAUSE_SECONDS = 1.0
-SPRITE_PATH = os.path.join(os.path.dirname(__file__), 'sonic-sprite.png')
+SPRITE_FILENAME = 'sonic-sprite.png'
+SPRITE_PATH = os.path.join(os.path.dirname(__file__), SPRITE_FILENAME)
