@@ -79,3 +79,12 @@ def draw_frame(sprite_sheet, animation, frame_index):
 		draw_width,
 		draw_height,
 	)
+
+
+def handle_events():
+	for event in get_events():
+		if event.type == SDL_QUIT:
+			return False
+		if event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
+			return False
+	return True
