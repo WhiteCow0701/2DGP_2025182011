@@ -102,3 +102,5 @@ def run_viewer():
 	repeat_count = 0
 	frame_elapsed = 0.0
 	pause_until = None
+	previous_time = get_time()
+	running = True
