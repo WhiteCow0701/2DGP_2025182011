@@ -51,3 +51,9 @@ def build_animations():
 		make_row('celebrate', 8, 70, frame_height=45, frame_interval=0.12),
 		make_row('pose', 8, 15, frame_height=40, frame_interval=0.12),
 	]
+
+
+def validate_animations(animations):
+	for animation in animations:
+		if not animation['frames']:
+			raise ValueError('애니메이션 프레임이 비어 있습니다.')
