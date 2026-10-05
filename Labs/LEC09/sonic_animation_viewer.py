@@ -104,3 +104,10 @@ def run_viewer():
 	pause_until = None
 	previous_time = get_time()
 	running = True
+
+	while running:
+		running = handle_events()
+		current_time = get_time()
+		elapsed = min(current_time - previous_time, 0.1)
+		previous_time = current_time
+		animation = animations[animation_index]
