@@ -96,3 +96,9 @@ def run_viewer():
 
 	open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 	sprite_sheet = load_image(SPRITE_PATH)
+
+	animation_index = 0
+	frame_index = 0
+	repeat_count = 0
+	frame_elapsed = 0.0
+	pause_until = None
