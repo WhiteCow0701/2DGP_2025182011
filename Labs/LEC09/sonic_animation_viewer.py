@@ -48,4 +48,6 @@ def build_animations():
 		make_row('spin', 8, 235, frame_interval=0.1),
 		make_row('attack', 6, 180, frame_interval=0.11),
 		make_row('fall', 6, 125, frame_interval=0.12),
+		make_row('celebrate', 8, 70, frame_height=45, frame_interval=0.12),
+		make_row('pose', 8, 15, frame_height=40, frame_interval=0.12),
 	]
