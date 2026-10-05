@@ -64,3 +64,18 @@ def validate_animations(animations):
 				raise ValueError('프레임 좌표는 음수일 수 없습니다.')
 			if left + width > SPRITE_WIDTH or bottom + height > SPRITE_HEIGHT:
 				raise ValueError('스프라이트 시트 영역을 벗어난 프레임입니다.')
+
+
+def draw_frame(sprite_sheet, animation, frame_index):
+	left, bottom, width, height = animation['frames'][frame_index]
+	draw_width, draw_height = animation['draw_size']
+	sprite_sheet.clip_draw(
+		left,
+		bottom,
+		width,
+		height,
+		CANVAS_WIDTH // 2,
+		CANVAS_HEIGHT // 2,
+		draw_width,
+		draw_height,
+	)
