@@ -120,3 +120,5 @@ def run_viewer():
 				if frame_index >= len(animation['frames']):
 					frame_index = 0
 					repeat_count += 1
+					if repeat_count >= REPEAT_COUNT:
+						pause_until = current_time + PAUSE_SECONDS
