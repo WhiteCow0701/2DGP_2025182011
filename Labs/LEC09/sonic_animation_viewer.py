@@ -122,3 +122,21 @@ def run_viewer():
 					repeat_count += 1
 					if repeat_count >= REPEAT_COUNT:
 						pause_until = current_time + PAUSE_SECONDS
+
+		if pause_until is not None and current_time >= pause_until:
+			animation_index = (animation_index + 1) % len(animations)
+			frame_index = 0
+			repeat_count = 0
+			frame_elapsed = 0.0
+			pause_until = None
+			animation = animations[animation_index]
+
+		clear_canvas()
+		draw_frame(sprite_sheet, animation, frame_index)
+		update_canvas()
+
+	close_canvas()
+
+
+if __name__ == '__main__':
+	run_viewer()
