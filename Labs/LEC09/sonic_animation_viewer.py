@@ -62,3 +62,5 @@ def validate_animations(animations):
 		for left, bottom, width, height in animation['frames']:
 			if left < 0 or bottom < 0:
 				raise ValueError('프레임 좌표는 음수일 수 없습니다.')
+			if left + width > SPRITE_WIDTH or bottom + height > SPRITE_HEIGHT:
+				raise ValueError('스프라이트 시트 영역을 벗어난 프레임입니다.')
