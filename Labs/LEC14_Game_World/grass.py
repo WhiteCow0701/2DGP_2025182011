@@ -7,7 +7,7 @@ class Grass:
         self.y = y
 
     def draw(self):
-        self.image.draw(400, 30)
+        self.image.draw(400, self.y)
 
     def update(self):
         pass
